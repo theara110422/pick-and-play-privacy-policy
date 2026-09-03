@@ -1,0 +1,615 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pick and Play Privacy Policy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;600;700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAF7EF;
+    --surface:#FFFFFF;
+    --surface-alt:#F1ECDC;
+    --ink:#142A21;
+    --ink-muted:#5C6A5A;
+    --accent:#1F7350;
+    --accent-strong:#175A3F;
+    --accent-soft:#E1F0E6;
+    --gold:#B5761F;
+    --gold-soft:#F5E6C9;
+    --border:#E3DCC7;
+    --shadow: 0 1px 2px rgba(20,42,33,0.06), 0 8px 24px -12px rgba(20,42,33,0.18);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#10241C;
+      --surface:#16302A;
+      --surface-alt:#1C3A31;
+      --ink:#F2EFE2;
+      --ink-muted:#A9B6A6;
+      --accent:#4CC38A;
+      --accent-strong:#6ED5A2;
+      --accent-soft:#1F3F32;
+      --gold:#F0B457;
+      --gold-soft:#3A2E19;
+      --border:#274A3C;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#10241C;
+    --surface:#16302A;
+    --surface-alt:#1C3A31;
+    --ink:#F2EFE2;
+    --ink-muted:#A9B6A6;
+    --accent:#4CC38A;
+    --accent-strong:#6ED5A2;
+    --accent-soft:#1F3F32;
+    --gold:#F0B457;
+    --gold-soft:#3A2E19;
+    --border:#274A3C;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background:var(--accent-soft); color:var(--ink); }
+
+  h1,h2,h3{
+    font-family:"Spectral", Georgia, serif;
+    font-weight:600;
+    text-wrap:balance;
+    line-height:1.2;
+    margin:0;
+  }
+
+  a{ color:var(--accent-strong); text-decoration-color: var(--accent); text-underline-offset:3px; }
+  a:hover{ text-decoration-thickness: 2px; }
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; border-radius:2px; }
+
+  .eyebrow{
+    font-family:"IBM Plex Mono", ui-monospace, monospace;
+    font-size:0.72rem;
+    letter-spacing:0.11em;
+    text-transform:uppercase;
+    color:var(--ink-muted);
+  }
+
+  .shell{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 24px;
+    display:grid;
+    grid-template-columns: 220px minmax(0,1fr);
+    gap:64px;
+  }
+  @media (max-width: 980px){
+    .shell{ grid-template-columns: 1fr; gap:0; padding:0 20px; }
+  }
+
+  /* ---- Masthead ---- */
+  header.masthead{
+    max-width:1180px;
+    margin:0 auto;
+    padding:48px 24px 40px;
+    border-bottom:1px solid var(--border);
+  }
+  .brand-row{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:34px;
+  }
+  .pick-mark{ flex:none; }
+  .wordmark{
+    font-family:"Spectral", serif;
+    font-weight:600;
+    font-size:1.05rem;
+    letter-spacing:0.01em;
+  }
+  .wordmark small{
+    display:block;
+    font-family:"IBM Plex Mono", monospace;
+    font-weight:400;
+    font-size:0.68rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--ink-muted);
+    margin-top:2px;
+  }
+  h1.title{
+    font-size:clamp(2.1rem, 4.2vw, 3rem);
+    max-width:14ch;
+    margin-bottom:16px;
+  }
+  .intro{
+    max-width:62ch;
+    color:var(--ink-muted);
+    font-size:1.05rem;
+    line-height:1.6;
+  }
+  .meta-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:26px;
+  }
+  .pill{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:0.75rem;
+    padding:6px 12px;
+    border-radius:100px;
+    border:1px solid var(--border);
+    background:var(--surface);
+    color:var(--ink-muted);
+  }
+  .pill strong{ color:var(--ink); font-weight:500; }
+
+  /* ---- Layout body ---- */
+  main{ padding:44px 0 90px; min-width:0; }
+
+  /* ---- TOC ---- */
+  nav.toc{
+    position:sticky;
+    top:32px;
+    align-self:start;
+    padding-top:44px;
+  }
+  nav.toc ol{
+    list-style:none;
+    margin:0; padding:0;
+    display:flex; flex-direction:column; gap:2px;
+    border-left:1px solid var(--border);
+  }
+  nav.toc a{
+    display:block;
+    padding:7px 0 7px 16px;
+    font-size:0.85rem;
+    color:var(--ink-muted);
+    text-decoration:none;
+    border-left:2px solid transparent;
+    margin-left:-1px;
+  }
+  nav.toc a:hover{ color:var(--ink); border-left-color:var(--accent); }
+  nav.toc .toc-num{
+    font-family:"IBM Plex Mono", monospace;
+    color:var(--gold);
+    margin-right:8px;
+    font-size:0.78rem;
+  }
+  @media (max-width: 980px){ nav.toc{ display:none; } }
+
+  /* ---- At a glance grid ---- */
+  .glance{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:14px;
+    margin-bottom:56px;
+  }
+  @media (max-width: 900px){ .glance{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width: 520px){ .glance{ grid-template-columns:1fr; } }
+  .glance-card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:18px 16px;
+    box-shadow:var(--shadow);
+  }
+  .glance-card .icon{
+    width:34px; height:34px;
+    display:flex; align-items:center; justify-content:center;
+    border-radius:9px;
+    background:var(--accent-soft);
+    color:var(--accent-strong);
+    margin-bottom:12px;
+  }
+  .glance-card h3{
+    font-size:0.98rem;
+    font-family:"Public Sans", sans-serif;
+    font-weight:600;
+    margin-bottom:5px;
+  }
+  .glance-card p{
+    margin:0;
+    font-size:0.85rem;
+    color:var(--ink-muted);
+    line-height:1.5;
+  }
+
+  /* ---- Sections ---- */
+  section.policy-section{
+    padding-top:40px;
+    margin-top:4px;
+    scroll-margin-top:28px;
+  }
+  section.policy-section + section.policy-section{
+    border-top:1px solid var(--border);
+  }
+  .section-head{
+    display:flex;
+    gap:16px;
+    align-items:baseline;
+    margin-bottom:16px;
+  }
+  .section-num{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:0.85rem;
+    color:var(--gold);
+    flex:none;
+    padding-top:4px;
+  }
+  h2.section-title{ font-size:1.5rem; }
+
+  .prose{
+    max-width:68ch;
+    font-size:1rem;
+    line-height:1.75;
+    color:var(--ink);
+  }
+  .prose p{ margin:0 0 14px; }
+  .prose p:last-child{ margin-bottom:0; }
+  .prose ul{ margin:0 0 14px; padding-left:1.2em; }
+  .prose li{ margin-bottom:8px; line-height:1.65; }
+  .prose li:last-child{ margin-bottom:0; }
+  .prose strong{ font-weight:600; }
+
+  .data-table{
+    width:100%;
+    max-width:68ch;
+    border-collapse:collapse;
+    margin:6px 0 22px;
+    font-size:0.92rem;
+  }
+  .data-table th{
+    text-align:left;
+    font-family:"IBM Plex Mono", monospace;
+    font-size:0.7rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--ink-muted);
+    font-weight:500;
+    padding:0 12px 8px 0;
+    border-bottom:1px solid var(--border);
+  }
+  .data-table td{
+    padding:12px 12px 12px 0;
+    border-bottom:1px solid var(--border);
+    vertical-align:top;
+    color:var(--ink);
+  }
+  .data-table tr:last-child td{ border-bottom:none; }
+  .data-table td.label{ font-weight:600; white-space:nowrap; }
+  .table-wrap{ overflow-x:auto; }
+
+  .callout{
+    max-width:68ch;
+    background:var(--surface-alt);
+    border:1px solid var(--border);
+    border-left:3px solid var(--gold);
+    border-radius:8px;
+    padding:14px 18px;
+    font-size:0.92rem;
+    line-height:1.6;
+    color:var(--ink);
+    margin-top:6px;
+  }
+
+  /* ---- Contact / footer ---- */
+  .contact-card{
+    max-width:68ch;
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:26px 28px;
+    box-shadow:var(--shadow);
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .contact-card a.email{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:1.02rem;
+    font-weight:500;
+  }
+  .contact-card p{ margin:0 0 4px; color:var(--ink-muted); font-size:0.9rem; }
+
+  footer{
+    max-width:1180px;
+    margin:0 auto;
+    padding:36px 24px 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:16px;
+    flex-wrap:wrap;
+    color:var(--ink-muted);
+    font-size:0.8rem;
+    font-family:"IBM Plex Mono", monospace;
+  }
+  footer .mark{ display:flex; align-items:center; gap:8px; }
+
+  @media (prefers-reduced-motion: reduce){ *{ scroll-behavior:auto !important; } }
+  html{ scroll-behavior:smooth; }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="brand-row">
+    <svg class="pick-mark" width="30" height="30" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pick and Play mark">
+      <path d="M32 5C47 5 57 18 57 31C57 45 45 58 32 59C19 58 7 45 7 31C7 18 17 5 32 5Z" fill="var(--accent)"/>
+      <path d="M26 24L42 32L26 40V24Z" fill="var(--bg)"/>
+    </svg>
+    <div class="wordmark">Pick and Play
+      <small>Music practice app</small>
+    </div>
+  </div>
+  <p class="eyebrow" style="margin-bottom:10px;">Legal &amp; Privacy</p>
+  <h1 class="title">Privacy Policy</h1>
+  <p class="intro">This policy explains what information the Pick and Play app collects when you practice chords, tune your instrument, and manage your account &mdash; and how that information is used, stored, and protected.</p>
+  <div class="meta-row">
+    <span class="pill">Effective <strong>September 3, 2026</strong></span>
+    <span class="pill">App <strong>Pick and Play</strong></span>
+    <span class="pill">Contact <strong>greentechnology.cambodia@gmail.com</strong></span>
+  </div>
+</header>
+
+<div class="shell">
+  <nav class="toc" aria-label="Table of contents">
+    <ol>
+      <li><a href="#who"><span class="toc-num">01</span>Who this covers</a></li>
+      <li><a href="#collect"><span class="toc-num">02</span>Information we collect</a></li>
+      <li><a href="#use"><span class="toc-num">03</span>How we use it</a></li>
+      <li><a href="#third-party"><span class="toc-num">04</span>Third-party services</a></li>
+      <li><a href="#security"><span class="toc-num">05</span>Storage &amp; security</a></li>
+      <li><a href="#sharing"><span class="toc-num">06</span>Sharing &amp; disclosure</a></li>
+      <li><a href="#retention"><span class="toc-num">07</span>Data retention</a></li>
+      <li><a href="#rights"><span class="toc-num">08</span>Your choices</a></li>
+      <li><a href="#children"><span class="toc-num">09</span>Children's privacy</a></li>
+      <li><a href="#international"><span class="toc-num">10</span>International users</a></li>
+      <li><a href="#changes"><span class="toc-num">11</span>Changes to this policy</a></li>
+      <li><a href="#contact"><span class="toc-num">12</span>Contact us</a></li>
+    </ol>
+  </nav>
+
+  <main>
+
+    <div class="glance">
+      <div class="glance-card">
+        <div class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 12V6a6 6 0 0112 0v6"/><path d="M4 12h2v3a2 2 0 002 2h8a2 2 0 002-2v-3h2"/><path d="M12 21v-4"/></svg></div>
+        <h3>Phone &amp; account</h3>
+        <p>Your phone number and verification code, used to create and sign in to your account.</p>
+      </div>
+      <div class="glance-card">
+        <div class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15a3 3 0 003-3V6a3 3 0 00-6 0v6a3 3 0 003 3z"/><path d="M19 11a7 7 0 01-14 0"/><path d="M12 18v3"/></svg></div>
+        <h3>Microphone audio</h3>
+        <p>Analyzed in real time on your device for pitch and tuning feedback while you practice.</p>
+      </div>
+      <div class="glance-card">
+        <div class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1"/><rect x="13" y="4" width="7" height="7" rx="1"/><rect x="4" y="13" width="7" height="7" rx="1"/><path d="M14 15h2v2h-2zM18 15h2v2h-2zM14 19h2v2h-2zM18 19h2v2h-2z"/></svg></div>
+        <h3>Payment QR code</h3>
+        <p>Generated for bank transfers and, if you choose, saved to your photo library to scan with your banking app.</p>
+      </div>
+      <div class="glance-card">
+        <div class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 21a2 2 0 004 0"/><path d="M4 17h16l-1.6-2.4A6 6 0 0117 11V9a5 5 0 00-10 0v2a6 6 0 01-1.4 3.6z"/></svg></div>
+        <h3>Push notifications</h3>
+        <p>A device token from our notification provider, used to send practice reminders and updates.</p>
+      </div>
+    </div>
+
+    <section class="policy-section" id="who">
+      <div class="section-head">
+        <span class="section-num">01</span>
+        <h2 class="section-title">Who this policy covers</h2>
+      </div>
+      <div class="prose">
+        <p>This Privacy Policy applies to the Pick and Play mobile app ,available on Android and iOS. It's written for anyone using the app to learn chords, practice tuning, watch lesson content, or manage a Pick and Play account.</p>
+        <p>By using Pick and Play, you agree to the collection and use of information as described here. If you don't agree, please don't use the app.</p>
+      </div>
+    </section>
+
+    <section class="policy-section" id="collect">
+      <div class="section-head">
+        <span class="section-num">02</span>
+        <h2 class="section-title">Information we collect</h2>
+      </div>
+      <div class="prose">
+        <p>We collect only what the app needs to run your lessons, track your progress, and keep your account secure.</p>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr><th>Category</th><th>What it includes</th><th>Why we collect it</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="label">Account info</td>
+              <td>Phone number, one-time verification code, and any name or profile photo you add</td>
+              <td>Creating your account and signing you back in</td>
+            </tr>
+            <tr>
+              <td class="label">Microphone audio</td>
+              <td>Live audio captured while a tuner or pitch-practice screen is open</td>
+              <td>Detecting pitch and timing to give you real-time feedback</td>
+            </tr>
+            <tr>
+              <td class="label">Practice &amp; usage data</td>
+              <td>Chords and lessons completed, scores, streaks, screens visited, app crashes</td>
+              <td>Tracking your progress and fixing bugs</td>
+            </tr>
+            <tr>
+              <td class="label">Payment QR data</td>
+              <td>A generated bank-transfer QR code, saved to your photo library only if you tap "Save"</td>
+              <td>Letting you pay for a subscription using your own banking app</td>
+            </tr>
+            <tr>
+              <td class="label">Device &amp; notification data</td>
+              <td>Device type, OS version, and a push-notification token</td>
+              <td>Sending reminders and keeping the app stable across devices</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        Microphone audio is processed on your device to detect pitch &mdash; we do not upload or store your raw recordings. The app only asks for camera-roll access to <em>add</em> a payment QR code image to your library; it does not read your existing photos.
+      </div>
+    </section>
+
+    <section class="policy-section" id="use">
+      <div class="section-head">
+        <span class="section-num">03</span>
+        <h2 class="section-title">How we use your information</h2>
+      </div>
+      <div class="prose">
+        <ul>
+          <li>Create, verify, and secure your Pick and Play account</li>
+          <li>Give you real-time pitch and tuning feedback during practice</li>
+          <li>Save your practice history, streaks, and lesson progress</li>
+          <li>Generate and process QR codes for subscription payments</li>
+          <li>Send you reminders, lesson updates, and service announcements</li>
+          <li>Diagnose crashes, fix bugs, and improve the app's performance</li>
+          <li>Respond to support requests you send us</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="policy-section" id="third-party">
+      <div class="section-head">
+        <span class="section-num">04</span>
+        <h2 class="section-title">Third-party services</h2>
+      </div>
+      <div class="prose">
+        <p>We rely on a small number of trusted providers to run parts of the app. We share only what each service needs to do its job:</p>
+        <ul>
+          <li><strong>Push notifications</strong> &mdash; delivered through OneSignal, which receives a device token so it can route messages to your device.</li>
+          <li><strong>Lesson video playback</strong> &mdash; embedded YouTube players load videos directly from YouTube, which applies Google's own privacy practices to that playback.</li>
+          <li><strong>Bank transfers</strong> &mdash; QR payment codes are scanned by your own banking app; Pick and Play does not receive or store your card or bank login details.</li>
+        </ul>
+        <p>These providers are only permitted to use your data to deliver their service to us &mdash; not for their own advertising.</p>
+      </div>
+    </section>
+
+    <section class="policy-section" id="security">
+      <div class="section-head">
+        <span class="section-num">05</span>
+        <h2 class="section-title">Storage &amp; security</h2>
+      </div>
+      <div class="prose">
+        <p>Sign-in tokens are kept in your device's secure, encrypted storage. Preferences and cached lesson data are kept in local app storage on your device. Account and progress data that needs to sync across your devices is sent, over an encrypted connection, to our servers.</p>
+        <p>No method of transmission or storage is 100% secure, but we apply industry-standard safeguards to protect your information from unauthorized access, alteration, or disclosure.</p>
+      </div>
+    </section>
+
+    <section class="policy-section" id="sharing">
+      <div class="section-head">
+        <span class="section-num">06</span>
+        <h2 class="section-title">Sharing &amp; disclosure</h2>
+      </div>
+      <div class="prose">
+        <p>We do not sell your personal information. We share it only:</p>
+        <ul>
+          <li>With service providers who help us run the app (see <a href="#third-party">Third-party services</a>), under obligations to protect it</li>
+          <li>If required by law, court order, or a valid government request</li>
+          <li>To protect the rights, safety, or property of Pick and Play, our users, or the public</li>
+          <li>As part of a merger, acquisition, or sale of assets, with notice to you</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="policy-section" id="retention">
+      <div class="section-head">
+        <span class="section-num">07</span>
+        <h2 class="section-title">Data retention</h2>
+      </div>
+      <div class="prose">
+        <p>We keep your account and practice data for as long as your account is active, so your progress carries over between sessions and devices. Microphone audio used for pitch detection is processed live and not retained after the analysis is complete. If you delete your account, we remove your personal data within a reasonable period, except where we're required to keep records for legal or accounting purposes.</p>
+      </div>
+    </section>
+
+    <section class="policy-section" id="rights">
+      <div class="section-head">
+        <span class="section-num">08</span>
+        <h2 class="section-title">Your choices</h2>
+      </div>
+      <div class="prose">
+        <ul>
+          <li><strong>Microphone access</strong> &mdash; can be turned off any time in your device settings; pitch-detection features simply won't work without it.</li>
+          <li><strong>Photo library access</strong> &mdash; only needed if you save a payment QR code; you can decline and pay another way instead.</li>
+          <li><strong>Notifications</strong> &mdash; can be disabled from your device settings or the app's notification preferences.</li>
+          <li><strong>Access, correct, or delete your data</strong> &mdash; email us at <a href="mailto:greentechnology.cambodia@gmail.com">greentechnology.cambodia@gmail.com</a> and we'll help you review, update, or close your account.</li>
+        </ul>
+        <p>Depending on where you live, you may have additional rights under laws such as the GDPR or CCPA, including the right to data portability and to object to certain processing. Contact us to exercise any of these rights.</p>
+      </div>
+    </section>
+
+    <section class="policy-section" id="children">
+      <div class="section-head">
+        <span class="section-num">09</span>
+        <h2 class="section-title">Children's privacy</h2>
+      </div>
+      <div class="prose">
+        <p>Pick and Play is not directed at children under 13, and we don't knowingly collect personal information from them. If you believe a child has provided us with personal information, contact us and we'll delete it.</p>
+      </div>
+    </section>
+
+    <section class="policy-section" id="international">
+      <div class="section-head">
+        <span class="section-num">10</span>
+        <h2 class="section-title">International users</h2>
+      </div>
+      <div class="prose">
+        <p>Your information may be processed and stored in a country other than where you live. Wherever it's processed, we apply the same protections described in this policy.</p>
+      </div>
+    </section>
+
+    <section class="policy-section" id="changes">
+      <div class="section-head">
+        <span class="section-num">11</span>
+        <h2 class="section-title">Changes to this policy</h2>
+      </div>
+      <div class="prose">
+        <p>We may update this policy as the app evolves. If we make a material change, we'll update the effective date above and, where appropriate, notify you in the app. Continuing to use Pick and Play after a change means you accept the updated policy.</p>
+      </div>
+    </section>
+
+    <section class="policy-section" id="contact">
+      <div class="section-head">
+        <span class="section-num">12</span>
+        <h2 class="section-title">Contact us</h2>
+      </div>
+      <div class="prose" style="margin-bottom:20px;">
+        <p>Questions about this policy, or a request to access or delete your data? Reach out directly.</p>
+      </div>
+      <div class="contact-card">
+        <div>
+          <p>Privacy contact</p>
+          <a class="email" href="mailto:greentechnology.cambodia@gmail.com">greentechnology.cambodia@gmail.com</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  <div class="mark">
+    <svg width="16" height="16" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M32 5C47 5 57 18 57 31C57 45 45 58 32 59C19 58 7 45 7 31C7 18 17 5 32 5Z" fill="var(--ink-muted)"/>
+    </svg>
+    <span>Pick and Play</span>
+  </div>
+  <span>&copy; 2026 Pick and Play. All rights reserved.</span>
+</footer>
+
+</body>
+</html>
